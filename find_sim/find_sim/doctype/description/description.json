@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2025-02-26 07:12:29.367015",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "description",
+  "old_number",
+  "sap_number",
+  "quantity"
+ ],
+ "fields": [
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "length": 80
+  },
+  {
+   "fieldname": "old_number",
+   "fieldtype": "Data",
+   "label": "Old Number",
+   "length": 20
+  },
+  {
+   "fieldname": "sap_number",
+   "fieldtype": "Data",
+   "label": "SAP Number",
+   "length": 10
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Int",
+   "label": "Quantity"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-26 08:48:23.888160",
+ "modified_by": "Administrator",
+ "module": "Find Sim",
+ "name": "Description",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
