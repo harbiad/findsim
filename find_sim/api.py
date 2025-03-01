@@ -91,18 +91,18 @@ def similar_description_old(query=None):
     # Initialize the model
     # model_name = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"  # Use a SentenceTransformer model
     #model_name = "distiluse-base-multilingual-cased-v2"  # Use a SentenceTransformer model distiluse-base-multilingual-cased-v2
-    model_path = '/home/frappe14/frappe-bench/apps/find_sim/findsim/src/data/paraphrase-multilingual-MiniLM-L12-v2'
+    model_path = '../apps/find_sim/paraphrase-multilingual-MiniLM-L12-v2'
     
     # Load the model from the local folder (no internet download required)
-    model = SentenceTransformer('/home/frappe14/frappe-bench/apps/find_sim/findsim/src/data/paraphrase-multilingual-MiniLM-L12-v2')
+    model = SentenceTransformer('../apps/find_sim/paraphrase-multilingual-MiniLM-L12-v2')
     print(f"Model loaded from {model_path}")
     # model = SentenceTransformer(model_name, device=device)
     
     # Load your data (replace 'descriptions.csv' with your file)
     #df = pd.read_csv("Material Description-subset.csv")  # Assuming a column named 'description'
     df = pd.read_csv(        #'descriptions-original.csv', 
-     '/home/frappe14/frappe-bench/apps/find_sim/findsim/src/data/MARA-check-duplicates.xls',
-     #'/home/frappe14/frappe-bench/apps/find_sim/findsim/src/data/MARA-check-duplicates-200-rows.xls',
+     '../apps/find_sim/MARA-check-duplicates.xls',
+
     sep=';',  # Use ; as a delimiter
     names=['Description','Original Row Nr', 'Old Material Nr', 'SAP Material Nr'],  
     skiprows = 1
@@ -202,8 +202,8 @@ def mara_embeddings():
     Generate and store embeddings for the MARA-check-duplicates.xls file.
     """
     df = generate_and_store_embeddings(
-        csv_path="/home/frappe14/frappe-bench/apps/find_sim/findsim/src/data/MARA-check-duplicates.xls",
-        embeddings_file="my_embeddings.npy"
+        csv_path="../apps/find_sim/MARA-check-duplicates.xls",
+        embeddings_file="../apps/find_sim/my_embeddings.npy"
     )
     print(f"Embeddings saved to my_embeddings.npy")
     return df
@@ -257,16 +257,11 @@ def similar_description(query=None):
     
         
     result_df = compute_similarities_with_query(query, 
-            embeddings_file="my_embeddings.npy", 
-            csv_path="/home/frappe14/frappe-bench/apps/find_sim/findsim/src/data/MARA-check-duplicates.xls",
+            embeddings_file="../apps/find_sim/my_embeddings.npy", 
+            csv_path="../apps/find_sim/MARA-check-duplicates.xls",
             )
-
-
-    
-     
+ 
     top_10 = result_df.head(10)
-    
-    
     
 
     # 1. Reset the index, adding it as a new column named "index"
